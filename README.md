@@ -39,9 +39,7 @@ where
 
 Each text chunk $t$ is mapped to a vector $E(t)\in\mathbb{R}^d$. We retrieve by ranking on
 
-$$
-\mathrm{sim}(u,v) \;=\; \frac{u\cdot v}{\|u\|\;\|v\|}\,
-$$
+$$\mathrm{sim}(u,v) \;=\; \frac{u\cdot v}{\|u\|\;\|v\|}\,$$
 
 which FAISS indexes for sub-linear nearest-neighbor search.
 
@@ -159,6 +157,7 @@ Question:
 ```
 
 **Example with RAG:**  
+```
 - **User:** “не могу отвязать VKID” (*I can’t unlink my VKID*)  
 - **Assistant:**  
   “To unlink your VK ID from your mail, follow these steps:  
