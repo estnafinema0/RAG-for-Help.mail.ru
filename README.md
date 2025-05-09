@@ -25,7 +25,9 @@ The repository includes two Jupyter notebooks:
 RAG decomposes the answer distribution as
 
 $$
-p(a \mid q) = \sum_{d \in \mathcal{D}_k}\;p_{\mathrm{gen}}(a \mid q, d)\;p_{\mathrm{ret}}(d \mid q)
+p(a \mid q) := \sum_{d \in \mathcal{D}_k}
+    p_{\mathrm{gen}}(a \mid q, d)\;
+    p_{\mathrm{ret}}(d \mid q)
 $$
 
 where
