@@ -13,8 +13,8 @@ Users’ questions are answered by first retrieving the top-k most relevant pass
 
 The repository includes two Jupyter notebooks:
 
-* `notebook_ru.ipynb`: the full pipeline with comments in Russian.
-* `notebook_en.ipynb`: the full pipeline with comments in English.
+* `mail_rag_ru.ipynb`: the full pipeline with comments in Russian.
+* `mail_rag_en.ipynb`: the full pipeline with comments in English.
 
 ---
 
@@ -24,7 +24,9 @@ The repository includes two Jupyter notebooks:
 
 RAG decomposes the answer distribution as
 
-$p(a \mid q) \;=\; \sum_{d \in \mathcal{D}_k} p_{\mathrm{gen}}(a \mid q, d)\;p_{\mathrm{ret}}(d \mid q)$
+$$
+p(a \mid q) = \sum_{d \in \mathcal{D}_k}\;p_{\mathrm{gen}}(a \mid q, d)\;p_{\mathrm{ret}}(d \mid q)
+$$
 
 where
 
@@ -37,7 +39,7 @@ where
 
 Each text chunk $t$ is mapped to a vector $E(t)\in\mathbb{R}^d$. We retrieve by ranking on
 
-$$\mathrm{sim}(u,v) = \frac{u\cdot v}{\|u\|\;\|v\|}\,$$
+$$\mathrm{sim}(u,v) \;= \frac{u\cdot v}{\|u\|\;\|v\|}\,$$
 
 which FAISS indexes for sub-linear nearest-neighbor search.
 
