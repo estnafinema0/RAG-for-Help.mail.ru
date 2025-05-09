@@ -24,9 +24,7 @@ The repository includes two Jupyter notebooks:
 
 RAG decomposes the answer distribution as
 
-$$
-p(a \mid q) \;=\; \sum_{d \in \mathcal{D}_k} p_{\mathrm{gen}}(a \mid q, d)\;p_{\mathrm{ret}}(d \mid q)
-$$
+$$p(a \mid q) \;=\; \sum_{d \in \mathcal{D}_k} p_{\mathrm{gen}}(a \mid q, d)\;p_{\mathrm{ret}}(d \mid q)$$
 
 where
 
@@ -59,18 +57,14 @@ We evaluate each embedding model’s geometry via:
 
 * **Uniformity**
 
-  $$
-    \mathcal{U}(X) = \log\!\Biggl[\frac{1}{n(n-1)}\sum_{i\neq j} \exp\bigl(-t\,\|x_i - x_j\|^2\bigr)\Biggr],
-  $$
+  $$\mathcal{U}(X) = \log\!\Biggl[\frac{1}{n(n-1)}\sum_{i\neq j} \exp\bigl(-t\,\|x_i - x_j\|^2\bigr)\Biggr],$$
 
   where $X=\{x_i\}$ are normalized embeddings and $t$ a temperature (e.g. $t=2$). Lower (more negative) $\mathcal{U}$ indicates a more even spread on the hypersphere.
 
 * **Alignment**
   We simulate a “positive” view $x_i^+$ via random dropout and compute
 
-  $$
-    \mathcal{A}(X) = \frac{1}{n}\sum_{i=1}^n \bigl\|\,\hat x_i - \hat x_i^+ \bigr\|^2,
-  $$
+  $$\mathcal{A}(X) = \frac{1}{n}\sum_{i=1}^n \bigl\|\,\hat x_i - \hat x_i^+ \bigr\|^2,$$
 
   where $\hat x = x/\|x\|$. Smaller $\mathcal{A}$ reflects stability under perturbations.
 
