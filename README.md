@@ -24,12 +24,12 @@ The repository includes two Jupyter notebooks:
 
 RAG decomposes the answer distribution as
 
-$$p(a \mid q) \;=\; \sum_{d \in \mathcal{D}_k} p_{\mathrm{gen}}(a \mid q, d)\;p_{\mathrm{ret}}(d \mid q)$$
+$p(a \mid q) \;=\; \sum_{d \in \mathcal{D}_k} p_{\mathrm{gen}}(a \mid q, d)\;p_{\mathrm{ret}}(d \mid q)$
 
 where
 
 * $q$ is the user query,
-* $\mathcal{D}_k$ are the top-$k$ retrieved documents,
+* $\mathcal{D}_k$ are the top-k retrieved documents,
 * $p_{\mathrm{ret}}(d\mid q)\propto \exp\big(\mathrm{sim}(E(q),E(d))\big)$ via cosine similarity,
 * $p_{\mathrm{gen}}(a\mid q,d)$ is the LLM’s conditional generation model.
 
@@ -37,7 +37,7 @@ where
 
 Each text chunk $t$ is mapped to a vector $E(t)\in\mathbb{R}^d$. We retrieve by ranking on
 
-$$\mathrm{sim}(u,v) \;=\; \frac{u\cdot v}{\|u\|\;\|v\|}\,$$
+$$\mathrm{sim}(u,v) = \frac{u\cdot v}{\|u\|\;\|v\|}\,$$
 
 which FAISS indexes for sub-linear nearest-neighbor search.
 
@@ -46,7 +46,7 @@ which FAISS indexes for sub-linear nearest-neighbor search.
 Long pages are split into overlapping chunks to fit embedding models’ context windows. Given text length $L$, chunk size $C$, overlap $O$, the number of chunks is
 
 $$
-N \;=\; \left\lceil \frac{L - O}{\,C - O\,}\right\rceil.
+N = \left\lceil \frac{L - O}{C - O}\right\rceil.
 $$
 
 Overlap $O$ preserves semantic continuity across boundaries.
